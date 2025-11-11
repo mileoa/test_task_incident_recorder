@@ -1,0 +1,15 @@
+services:
+  incident-recorder-main-app:
+    build:
+      context: ..
+      dockerfile: ./docker/app.Dockerfile
+    command: >
+      sh -c " python manage.py collectstatic --no-input && \
+            gunicorn --reload core.wsgi:application --workers 4 --worker-class gevent --bind 0.0.0.0:8000"
+    container_name: incident-recorder-main-app
+    env_file:
+      - ../src/.env
+    depends_on:
+      - incident-recorder-db
+    volumes:
+      - ../src/:/app/

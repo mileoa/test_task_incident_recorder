@@ -1,0 +1,11 @@
+services:
+  incident-recorder-db:
+    image: postgres:17.6-alpine3.22
+    container_name: incident-recorder-db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - ../src/.env
+
+volumes:
+  postgres_data:

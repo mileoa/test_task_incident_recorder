@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "test-task-incident-recorder"
+version = "0.1.0"
+description = ""
+authors = ["mileoa <ezkimozzzzz@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.2.8"
+djangorestframework = "^3.16.1"
+django-filter = "^25.2"
+drf-yasg = "^1.21.11"
+dotenv = "^0.9.9"
+psycopg2-binary = "^2.9.11"
+gunicorn = "^23.0.0"
+gevent = "^25.9.1"
+pytest-django = "^4.11.1"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^9.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

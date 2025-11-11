@@ -1,0 +1,17 @@
+services:
+  nginx:
+    build:
+      context: ..
+      dockerfile: ./docker/nginx.Dockerfile
+    volumes:
+      - ../src/static:/static
+      - ../nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - nginx_logs:/var/log/nginx
+    ports:
+      - "8081:80"
+    depends_on:
+      - incident-recorder-main-app
+    restart: always
+
+volumes:
+  nginx_logs:
